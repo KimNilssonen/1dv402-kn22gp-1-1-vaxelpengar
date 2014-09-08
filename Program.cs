@@ -69,34 +69,62 @@ namespace Change
             int ones = 1;
              
 
+            //500
             int temp = 0;                                           // Gör en temporär int som kan hålla talet efter dividering.
             temp = back / fiveHundreds;
             back = back % fiveHundreds;                             //Ger antalet femhundralappar. Denna formeln återanvänds för resterande sedlar och mynt.
-            Console.WriteLine("500 - lappar         :{0}", temp);
+            if (temp > 0)
+            {
+                Console.WriteLine("500 - lappar         :{0}", temp);
+            }
 
-            temp = back / hundreds;
-            back = back % hundreds;
-            Console.WriteLine("100 - lappar         :{0}", temp);
-            
-            temp = back / fifties;
-            back = back % fifties;
-            Console.WriteLine("50  - lappar         :{0}", temp);
-            
-            temp = back / twenties;
-            back = back % twenties;
-            Console.WriteLine("20  - lappar         :{0}", temp);
+                //100
+                temp = back / hundreds;
+                back = back % hundreds;
+                if (temp > 0)
+                {
+                    Console.WriteLine("100 - lappar         :{0}", temp);
+                }
 
-            temp = back / tens;
-            back = back % tens;
-            Console.WriteLine("10  - lappar         :{0}", temp);
+                    //50
+                    temp = back / fifties;
+                    back = back % fifties;
+                    if (temp > 0)
+                    {
+                        Console.WriteLine("50  - lappar         :{0}", temp);
+                    }
 
-            temp = back / fives;
-            back = back % fives;
-            Console.WriteLine("5   - lappar         :{0}", temp);
+                        //20
+                        temp = back / twenties;
+                        back = back % twenties;
+                        if (temp > 0)
+                        {
+                            Console.WriteLine("20  - lappar         :{0}", temp);
+                        }
+                            
+                            //10
+                            temp = back / tens;
+                            back = back % tens;
+                            if (temp > 0)
+                            {
+                                    Console.WriteLine("10  - lappar         :{0}", temp);
+                            }
 
-            temp = back / ones;
-            back = back % ones;
-            Console.WriteLine("1   - lappar         :{0}", temp);
+                                //5
+                                temp = back / fives;
+                                back = back % fives;
+                                if (temp > 0)
+                                {
+                                    Console.WriteLine("5   - kronor         :{0}", temp);
+                                }
+
+                                    //1
+                                    temp = back / ones;
+                                    back = back % ones;
+                                    if (temp > 0)
+                                    {
+                                        Console.WriteLine("1   - kronor         :{0}", temp);
+                                    }
 
         }
     }
