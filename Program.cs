@@ -28,14 +28,18 @@ namespace Change
                 {
                     Console.Write("Ange totalsumma      : ");
                     totalSum = double.Parse(Console.ReadLine());
-                    if (totalSum < 1) // En if-sats som kollar om värdet är mindre än 1. Skulle detta stämma så stänger programmet.
+                    if (totalSum < 0.5) // En if-sats som kollar om värdet är mindre än 0,5. Skulle detta stämma så stänger programmet.
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Totalsumman är för liten, måste vara mer än 1!\n");
                         Console.ResetColor();
-                        return;
+                        return;     
                     }
-                    break; // Bryter ut ut loopen om inga fel påträffats.
+                    else
+                    {
+                        Math.Round(totalSum, MidpointRounding.AwayFromZero);
+                    }
+                    break; // Bryter ut ur loopen om inga fel påträffats.
                 }
                 catch      // Fångar upp eventuella fel vid inmatning som jag nämnde tidigare. Om detta händer så börjar loopen om.
                 {
@@ -91,11 +95,11 @@ namespace Change
             Console.WriteLine();
             Console.WriteLine("KVITTO");
             Console.WriteLine("----------------------------------\n");
-            Console.WriteLine(String.Format("Totalt            :{0,15:c}", totalSum)); // Totalt man betalt från början.
-            Console.WriteLine(String.Format("Öresavrunding     :{0,15:c}", roundOff)); // Avrundningen, vilket ger en ny totalsumma att betala.
-            Console.WriteLine(String.Format("Att betala        :{0,15:c}", subTotal)); // Den nya totalsumman.
-            Console.WriteLine(String.Format("Kontant           :{0,15:c}", paid));     // Det betalade beloppet.
-            Console.WriteLine(String.Format("Tillbaka          :{0,15:c}\n", back));   // Beloppet du får tillbaka.
+            Console.WriteLine(String.Format("Totalt            :{0,15:c}", totalSum)); 
+            Console.WriteLine(String.Format("Öresavrunding     :{0,15:c}", roundOff)); 
+            Console.WriteLine(String.Format("Att betala        :{0,15:c}", subTotal)); 
+            Console.WriteLine(String.Format("Kontant           :{0,15:c}", paid));     
+            Console.WriteLine(String.Format("Tillbaka          :{0,15:c}\n", back));   
             Console.WriteLine("----------------------------------\n");
             //String.Format är till för att höger eller vänsterjustera text. Ex {0,10} ger högerjusterat, minusvärde på tian ger istället vänsterjusterat.
             //Jag hittade denna infon här: http://www.csharp-examples.net/align-string-with-spaces/
